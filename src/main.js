@@ -33,7 +33,8 @@ function loggedinStartup() {
 
 function updateClock() {
   let now = new Date();
-  let time = `${now.getHours()}:${now.getMinutes()}`;
+  let minutes = now.getMinutes();
+  let time = `${now.getHours()}:${minutes <= 10 ? `0${minutes}` : ''}`;
   clock.innerText = time;
 
   setTimeout(updateClock, 1000);
