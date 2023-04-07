@@ -7,6 +7,9 @@ const username = 'Bonnie';
 
 const clock = document.getElementById('clock');
 const greetingBox = document.getElementById('greeting');
+const focusInput = document.getElementById('focusInput');
+const focusTaskContainer = document.querySelector('.focusTaskContainer');
+const focusPromptContainer = document.querySelector('.focusPromptContainer');
 
 if (loggedIn) {
   loggedInContainer.style.display = 'block';
