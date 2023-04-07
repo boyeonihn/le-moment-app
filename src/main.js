@@ -11,7 +11,7 @@ const greetingBox = document.getElementById('greeting');
 if (loggedIn) {
   loggedInContainer.style.display = 'block';
   notLoggedInContainer.style.display = 'none';
-  updateClock();
+  setInterval(updateClock, 1000);
   loggedinStartup();
 } else {
   loggedInContainer.style.display = 'none';
@@ -37,7 +37,5 @@ function updateClock() {
     now.getMinutes() < 10 ? `0${now.getMinutes()}` : now.getMinutes();
   let time = `${now.getHours()}:${minutes}`;
   clock.innerText = time;
-
-  setTimeout(updateClock, 1000);
   return now.getHours();
 }
