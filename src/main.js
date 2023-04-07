@@ -12,8 +12,8 @@ const focusTaskContainer = document.querySelector('.focusTaskContainer');
 const focusPromptContainer = document.querySelector('.focusPromptContainer');
 
 if (loggedIn) {
-  loggedInContainer.style.display = 'block';
-  notLoggedInContainer.style.display = 'none';
+  loggedInContainer.classList.toggle('visible');
+  notLoggedInContainer.classList.toggle('invisible');
   setInterval(updateClock, 1000);
   loggedinStartup();
 } else {
