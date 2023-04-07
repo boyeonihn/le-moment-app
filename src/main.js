@@ -10,6 +10,7 @@ const greetingBox = document.getElementById('greeting');
 const focusInput = document.getElementById('focusInput');
 const focusTaskContainer = document.querySelector('.focusTaskContainer');
 const focusPromptContainer = document.querySelector('.focusPromptContainer');
+const focusTask = document.getElementById('focusTask');
 
 if (loggedIn) {
   loggedInContainer.classList.toggle('visible');
@@ -45,9 +46,8 @@ function updateClock() {
 
 focusInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter' && focusInput.value.length > 0) {
-    console.log('hi');
     const inputValue = focusInput.value;
-    document.getElementById('focusTask').innerHTML = `
+    focusTask.innerHTML = `
       <span><i class="fa-regular fa-square"></i></span>
       <h3>${inputValue}</h3>
       <span><i class="fa-solid fa-ellipsis"></i></span>
@@ -55,5 +55,18 @@ focusInput.addEventListener('keydown', (event) => {
     focusPromptContainer.classList.toggle('invisible');
     focusTaskContainer.classList.toggle('invisible');
     focusTaskContainer.classList.toggle('visible');
+    focusTask.classList.toggle('flex');
+  }
+});
+
+focusTask.addEventListener('click', (event) => {
+  console.log(event.target);
+  if (event.target.classList.contains('fa-square')) {
+    const focusTaskText = focusTask.querySelector('h3');
+    if (focusTaskText.style.textDecoration === 'line-through') {
+      focusTaskText.style.textDecoration = 'none';
+    } else {
+      focusTaskText.style.textDecoration = 'line-through';
+    }
   }
 });
