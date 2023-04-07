@@ -42,3 +42,18 @@ function updateClock() {
   clock.innerText = time;
   return now.getHours();
 }
+
+focusInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && focusInput.value.length > 0) {
+    console.log('hi');
+    const inputValue = focusInput.value;
+    document.getElementById('focusTask').innerHTML = `
+      <span><i class="fa-regular fa-square"></i></span>
+      <h3>${inputValue}</h3>
+      <span><i class="fa-solid fa-ellipsis"></i></span>
+      `;
+    focusPromptContainer.classList.toggle('invisible');
+    focusTaskContainer.classList.toggle('invisible');
+    focusTaskContainer.classList.toggle('visible');
+  }
+});
