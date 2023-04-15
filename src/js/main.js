@@ -1,10 +1,15 @@
-import './style.css';
+import { geoSuccess, geoError } from './weather';
+// general variable declarations
+let username = '';
 
-const loggedIn = true;
+// logged in vs. not logged in container
 const loggedInContainer = document.querySelector('.loggedIn');
 const notLoggedInContainer = document.querySelector('.notLoggedIn');
-const username = 'Bonnie';
 
+//notloggedIn container elements
+const loginForm = document.querySelector('.login-form');
+
+// loggedInContainer elements
 const clock = document.getElementById('clock');
 const greetingBox = document.getElementById('greeting');
 const focusInput = document.getElementById('focusInput');
@@ -12,14 +17,26 @@ const focusTaskContainer = document.querySelector('.focusTaskContainer');
 const focusPromptContainer = document.querySelector('.focusPromptContainer');
 const focusTask = document.getElementById('focusTask');
 
-if (loggedIn) {
-  loggedInContainer.classList.toggle('visible');
-  notLoggedInContainer.classList.toggle('invisible');
+const submitName = (event) => {
+  event.preventDefault();
+  username = loginForm.querySelector('input').value;
+  switchToLoginMode();
+  navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+};
+
+loginForm.addEventListener('submit', submitName);
+
+function switchToLogoutMode() {
+  loggedInContainer.classList.add('invisible');
+  notLoggedInContainer.classList.remove('invisible');
+}
+
+function switchToLoginMode() {
+  loggedInContainer.classList.remove('invisible');
+  notLoggedInContainer.classList.add('invisible');
   setInterval(updateClock, 1000);
   loggedinStartup();
-} else {
-  loggedInContainer.style.display = 'none';
-  notLoggedInContainer.style.display = 'block';
+  renderQuote();
 }
 
 function loggedinStartup() {
@@ -60,7 +77,6 @@ focusInput.addEventListener('keydown', (event) => {
 });
 
 focusTask.addEventListener('click', (event) => {
-  console.log(event.target);
   if (event.target.classList.contains('fa-square')) {
     const focusTaskText = focusTask.querySelector('h3');
     if (focusTaskText.style.textDecoration === 'line-through') {
@@ -76,7 +92,7 @@ async function generateQuote() {
     'https://api.api-ninjas.com/v1/quotes?category=inspirational',
     {
       method: 'GET',
-      headers: { 'X-Api-Key': import.meta.env.API_KEY },
+      headers: { 'X-Api-Key': import.meta.env.VITE_API_KEY },
     }
   )
     .then((res) => res.json())
@@ -92,8 +108,5 @@ async function renderQuote() {
   const quote = quoteObject.quote;
   const author = quoteObject.author;
 
-  console.log(quote, author);
   document.getElementById('quote').innerText = quote;
 }
-
-renderQuote();
