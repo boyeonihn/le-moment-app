@@ -70,3 +70,30 @@ focusTask.addEventListener('click', (event) => {
     }
   }
 });
+
+async function generateQuote() {
+  const response = await fetch(
+    'https://api.api-ninjas.com/v1/quotes?category=inspirational',
+    {
+      method: 'GET',
+      headers: { 'X-Api-Key': import.meta.env.API_KEY },
+    }
+  )
+    .then((res) => res.json())
+    .then((data) => data[0])
+    .catch((err) => {
+      console.log(err);
+    });
+  return response;
+}
+
+async function renderQuote() {
+  const quoteObject = await generateQuote();
+  const quote = quoteObject.quote;
+  const author = quoteObject.author;
+
+  console.log(quote, author);
+  document.getElementById('quote').innerText = quote;
+}
+
+renderQuote();
