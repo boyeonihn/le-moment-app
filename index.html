@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="src/css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       src="https://kit.fontawesome.com/8a455fb345.js"
@@ -11,11 +12,14 @@
     <title>Le Moment</title>
   </head>
   <body>
-    <div class="loggedIn">
+    <div class="loggedIn main-page invisible">
       <header>
-        <span>Links</span>
-        <h3>Le Moment</h3>
-        <span id="weather"></span>
+        <span class="header-span">Links</span>
+        <h3 class="header-heading">Le Moment</h3>
+        <div class="header-span header-weather">
+          <span class="weather-realFeel" id="realFeel"></span>
+          <span class="weather-location" id="location"></span>
+        </div>
       </header>
       <main id="app">
         <h1 id="clock"></h1>
@@ -27,21 +31,21 @@
           </div>
           <div class="focusTaskContainer invisible">
             <h3>Today</h3>
-            <p id="focusTask"></p>
+            <div id="focusTask"></div>
           </div>
         </section>
       </main>
-      <footer>
+      <footer class="flex">
         <span id="settings"></span>
         <p id="quote"></p>
       </footer>
     </div>
-    <div class="notLoggedIn">
-      <h1>Hello, what's your name?</h1>
-      <form>
-        <input type="text" required />
+    <section class="notLoggedIn login-container">
+      <h1 class="login-heading">Hello, what's your name?</h1>
+      <form class="login-form">
+        <input class="login-input" type="text" required />
       </form>
-    </div>
-    <script type="module" src="src/main.js"></script>
+    </section>
+    <script type="module" src="src/js/main.js"></script>
   </body>
 </html>
