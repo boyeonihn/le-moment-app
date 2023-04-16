@@ -25,6 +25,10 @@ const focusTask = document.getElementById('focusTask');
 
 const submitName = (event) => {
   event.preventDefault();
+  if (loginForm.querySelector('input').value.length === 0) {
+    alert('Please enter your name!');
+    return;
+  }
   username = loginForm.querySelector('input').value;
   switchToLoginMode();
   navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
