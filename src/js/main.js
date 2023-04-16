@@ -16,12 +16,14 @@ const notLoggedInContainer = document.querySelector('.notLoggedIn');
 const loginForm = document.querySelector('.login-form');
 
 // loggedInContainer elements
-const clock = document.getElementById('clock');
-const greetingBox = document.getElementById('greeting');
 const focusInput = document.getElementById('focusInput');
-const focusTaskContainer = document.querySelector('.focusTaskContainer');
-const focusPromptContainer = document.querySelector('.focusPromptContainer');
 const focusTask = document.getElementById('focusTask');
+const todoListInput = document.querySelector('.todo-list-input');
+
+//footer elements
+const footer = document.querySelector('footer');
+const todoHeading = document.getElementById('todo-heading');
+const todoList = document.getElementById('todo-list');
 
 const submitName = (event) => {
   event.preventDefault();
@@ -39,13 +41,15 @@ loginForm.addEventListener('submit', submitName);
 function switchToLogoutMode() {
   loggedInContainer.classList.add('invisible');
   notLoggedInContainer.classList.remove('invisible');
+  footer.classList.add('invisible');
 }
 
 function switchToLoginMode() {
   loggedInContainer.classList.remove('invisible');
   notLoggedInContainer.classList.add('invisible');
+  footer.classList.remove('invisible');
   setInterval(updateClock, 1000);
-  loggedinStartup();
+  loggedinStartup(updateClock, username);
   renderQuote();
 }
 
@@ -53,15 +57,9 @@ focusInput.addEventListener('keydown', addMainFocus);
 focusTask.addEventListener('click', checkOffMainFocus);
 todoHeading.addEventListener('click', openTodoList);
 
-function updateClock() {
-  let now = new Date();
-  let minutes =
-    now.getMinutes() < 10 ? `0${now.getMinutes()}` : now.getMinutes();
-  let time = `${now.getHours()}:${minutes}`;
-  clock.innerText = time;
-  return now.getHours();
+function openTodoList() {
+  todoList.classList.toggle('invisible');
 }
 
-const todoListInput = document.querySelector('.todo-list-input');
 todoListInput.addEventListener('keydown', addTodoList);
 getBackgroundImage();
