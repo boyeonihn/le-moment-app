@@ -16,14 +16,11 @@ export const addTodoList = (event) => {
 
     document.getElementById('todo-ul').append(todoItem);
     todoListInput.value = '';
-    todoItem.addEventListener('click', checkOffItem);
-    document
-      .querySelector('.todo-item-delete')
-      .addEventListener('click', deleteTodo);
+    todoItem.addEventListener('click', affectTodoItem);
   }
 };
 
-const checkOffItem = (event) => {
+const affectTodoItem = (event) => {
   if (event.target.classList.contains('checkbox')) {
     const todoItem = event.target.closest('.todolist-item').querySelector('p');
     if (todoItem.style.textDecoration === 'line-through') {
@@ -32,9 +29,8 @@ const checkOffItem = (event) => {
       todoItem.style.textDecoration = 'line-through';
     }
   }
+  if (event.target.classList.contains('todo-item-delete')) {
+    const targetTodoItem = event.target.closest('.todolist-item');
+    targetTodoItem.remove();
+  }
 };
-
-function deleteTodo(event) {
-  const targetTodoItem = event.target.closest('.todolist-item');
-  targetTodoItem.remove();
-}
