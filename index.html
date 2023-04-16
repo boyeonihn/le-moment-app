@@ -14,38 +14,49 @@
   <body>
     <div class="loggedIn main-page invisible">
       <header>
-        <span class="header-span">Links</span>
-        <h3 class="header-heading">Le Moment</h3>
+        <span class="header-span" id="todayDate"></span>
         <div class="header-span header-weather">
           <span class="weather-realFeel" id="realFeel"></span>
           <span class="weather-location" id="location"></span>
         </div>
       </header>
-      <main id="app">
+      <main>
         <h1 id="clock"></h1>
         <h2 id="greeting"></h2>
         <section class="focusContainer">
           <div class="focusPromptContainer">
-            <p>What is your main focus for today?</p>
+            <h3 id="focusPromptQuestion">What is your main focus for today?</h3>
             <input id="focusInput" type="text" />
           </div>
           <div class="focusTaskContainer invisible">
-            <h3>Today</h3>
-            <div id="focusTask"></div>
+            <h4>Today</h4>
+            <section id="focusTask"></section>
+            <span class="complete-message"></span>
           </div>
         </section>
+        <section class="quote-container">
+          <p id="quote"></p>
+          <span id="quoteAuthor"></span>
+        </section>
       </main>
-      <footer class="flex">
-        <span id="settings"></span>
-        <p id="quote"></p>
-      </footer>
     </div>
     <section class="notLoggedIn login-container">
       <h1 class="login-heading">Hello, what's your name?</h1>
       <form class="login-form">
-        <input class="login-input" type="text" required />
+        <input class="login-input" type="text" />
       </form>
     </section>
+    <footer class="invisible">
+      <span class="footer-photo-credit" id="photoCredit"></span>
+      <section id="todo-container">
+        <section id="todo-list" class="invisible">
+          <h4 class="todo-list-title">To-Do List</h4>
+          <input class="todo-list-input" placeholder="New To-Do" type="text" />
+          <ul id="todo-ul"></ul>
+        </section>
+        <h4 id="todo-heading">Todo</h4>
+      </section>
+    </footer>
     <script type="module" src="src/js/main.js"></script>
   </body>
 </html>
