@@ -45,18 +45,9 @@ function switchToLoginMode() {
   renderQuote();
 }
 
-function loggedinStartup() {
-  const currentHour = updateClock();
-  let greetingType;
-  if (currentHour >= 0 && currentHour <= 11) {
-    greetingType = 'Good morning';
-  } else if (currentHour >= 12 && currentHour <= 16) {
-    greetingType = 'Good afternoon';
-  } else if ((currentHour >= 15 && currentHour <= 24) || currentHour == 0) {
-    greetingType = 'Good evening';
-  }
-  greetingBox.innerText = `${greetingType}, ${username}.`;
-}
+focusInput.addEventListener('keydown', addMainFocus);
+focusTask.addEventListener('click', checkOffMainFocus);
+todoHeading.addEventListener('click', openTodoList);
 
 function updateClock() {
   let now = new Date();
@@ -67,54 +58,6 @@ function updateClock() {
   return now.getHours();
 }
 
-focusInput.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter' && focusInput.value.length > 0) {
-    const inputValue = focusInput.value;
-    focusTask.innerHTML = `
-      <input type="checkbox" class="checkbox" id="main-focus-checkbox">
-      <h3 id="main-focus-task">${inputValue}</h3>
-      <span><i class="fa-solid fa-ellipsis"></i></span>
-      <span class="complete-message"></span>
-      `;
-    focusPromptContainer.classList.toggle('invisible');
-    focusTaskContainer.classList.toggle('invisible');
-  }
-});
-
-focusTask.addEventListener('click', (event) => {
-  if (event.target.classList.contains('checkbox')) {
-    const focusTaskText = focusTask.querySelector('h3');
-    const completeMessage = focusTask.querySelector('.complete-message');
-    if (focusTaskText.style.textDecoration === 'line-through') {
-      focusTaskText.style.textDecoration = 'none';
-      completeMessage.innerText = '';
-    } else {
-      focusTaskText.style.textDecoration = 'line-through';
-      completeMessage.innerText = 'You got it done!';
-    }
-  }
-});
-
-async function generateQuote() {
-  const response = await fetch(
-    'https://api.api-ninjas.com/v1/quotes?category=inspirational',
-    {
-      method: 'GET',
-      headers: { 'X-Api-Key': import.meta.env.VITE_API_KEY },
-    }
-  )
-    .then((res) => res.json())
-    .then((data) => data[0])
-    .catch((err) => {
-      console.log(err);
-    });
-  return response;
-}
-
-async function renderQuote() {
-  const quoteObject = await generateQuote();
-  const quote = quoteObject.quote;
-  const author = quoteObject.author;
-
-  document.getElementById('quote').innerText = quote;
-}
+const todoListInput = document.querySelector('.todo-list-input');
+todoListInput.addEventListener('keydown', addTodoList);
+getBackgroundImage();
