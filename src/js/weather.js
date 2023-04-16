@@ -19,7 +19,9 @@ async function getLocationName(lat, long) {
       const realFeelTemp = document.getElementById('realFeel');
       const location = document.getElementById('location');
 
-      realFeelTemp.innerText = `Feels like ${data.main.feels_like}°C`;
+      realFeelTemp.innerText = `Feels like ${Math.round(
+        data.main.feels_like
+      )}°C`;
       location.innerText = `${data.weather[0].main} / ${data.name}`;
     });
 }
