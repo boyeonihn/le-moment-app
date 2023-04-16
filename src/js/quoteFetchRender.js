@@ -5,16 +5,17 @@ export async function renderQuote() {
 
   const authorElement = document.getElementById('quoteAuthor');
   const quoteElement = document.getElementById('quote');
+  const quoteContainer = document.querySelector('.quote-container');
   authorElement.style.visibility = 'hidden';
 
   quoteElement.innerText = `"${quote}"`;
   authorElement.innerText = author;
 
-  quoteElement.addEventListener('mouseover', () => {
+  quoteContainer.addEventListener('mouseover', () => {
     authorElement.style.visibility = `visible`;
   });
 
-  quoteElement.addEventListener('mouseout', () => {
+  quoteContainer.addEventListener('mouseout', () => {
     authorElement.style.visibility = 'hidden';
   });
 }
