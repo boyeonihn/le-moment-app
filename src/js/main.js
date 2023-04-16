@@ -65,24 +65,26 @@ focusInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter' && focusInput.value.length > 0) {
     const inputValue = focusInput.value;
     focusTask.innerHTML = `
-      <span><i class="fa-regular fa-square"></i></span>
-      <h3>${inputValue}</h3>
+      <input type="checkbox" class="checkbox" id="main-focus-checkbox">
+      <h3 id="main-focus-task">${inputValue}</h3>
       <span><i class="fa-solid fa-ellipsis"></i></span>
+      <span class="complete-message"></span>
       `;
     focusPromptContainer.classList.toggle('invisible');
     focusTaskContainer.classList.toggle('invisible');
-    focusTaskContainer.classList.toggle('visible');
-    focusTask.classList.toggle('flex');
   }
 });
 
 focusTask.addEventListener('click', (event) => {
-  if (event.target.classList.contains('fa-square')) {
+  if (event.target.classList.contains('checkbox')) {
     const focusTaskText = focusTask.querySelector('h3');
+    const completeMessage = focusTask.querySelector('.complete-message');
     if (focusTaskText.style.textDecoration === 'line-through') {
       focusTaskText.style.textDecoration = 'none';
+      completeMessage.innerText = '';
     } else {
       focusTaskText.style.textDecoration = 'line-through';
+      completeMessage.innerText = 'You got it done!';
     }
   }
 });
