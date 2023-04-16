@@ -1,4 +1,10 @@
 import { geoSuccess, geoError } from './weather';
+import { getBackgroundImage } from './backgroundImg';
+import { renderQuote, generateQuote } from './quoteFetchRender';
+import { updateClock } from './clock';
+import { addTodoList } from './todoList';
+import { loggedinStartup } from './greeting';
+import { checkOffMainFocus, addMainFocus } from './mainFocus';
 // general variable declarations
 let username = '';
 
