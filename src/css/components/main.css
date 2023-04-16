@@ -1,0 +1,94 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 500px;
+}
+
+.focusPromptContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 1s ease-in-out;
+  border: 1px solid pink;
+  height: 200px;
+}
+
+#focusInput {
+  border-bottom: 3px solid white;
+  width: 500px;
+  background: transparent;
+  text-align: center;
+}
+
+.focusTaskContainer {
+  text-align: center;
+  font-size: 1.25rem;
+  transition: 1s ease-in-out;
+  height: 200px;
+}
+.focusTaskContainer h4 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+
+#focusPromptQuestion,
+#focusInput {
+  font-size: 2rem;
+}
+.focusTaskContainer > h3,
+#focusTask {
+  width: 300px;
+}
+
+#main-focus-task {
+  padding: 0 15px;
+  margin: 0;
+}
+#focusTask {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  height: 50px;
+}
+
+#clock,
+#greeting,
+#focusPromptQuestion {
+  font-weight: normal;
+}
+
+#focusPromptQuestion {
+  margin: 0;
+}
+#clock {
+  font-size: 10rem;
+  margin-bottom: 0px;
+  margin-top: 600px;
+}
+#greeting {
+  font-size: 3.5rem;
+  margin: 0px;
+  margin-bottom: 50px;
+}
+
+.focusPromptContainer p {
+  font-size: 1.5rem;
+}
+
+.quote-container {
+  text-align: center;
+}
+
+#quote {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 10px 0px;
+  height: 30px;
+}

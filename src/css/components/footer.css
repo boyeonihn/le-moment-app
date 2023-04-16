@@ -1,0 +1,72 @@
+@keyframes fadeInBlink {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px;
+  width: 97vw;
+  position: absolute;
+  bottom: 0px;
+  animation: fadeIn 0.5s linear;
+}
+
+#todo-heading:hover {
+  cursor: pointer;
+}
+#todo-container {
+  position: relative;
+}
+
+#todo-list {
+  position: absolute;
+  bottom: 100px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.8);
+  height: 200px;
+  border-radius: 15px;
+}
+
+#todo-ul {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 0px;
+}
+.todolist-item {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  height: 30px;
+}
+
+.todo-item-task {
+  padding: 0px;
+}
+
+.todo-list-input,
+.todo-item-task {
+  font-size: 1rem;
+}
+.todo-item-task,
+.todo-list-title,
+.todo-list-input {
+  padding-left: 10px;
+}
+
+.todo-list-input {
+  margin: 0px 10px;
+  border-radius: 10px;
+}
+.todo-list-title {
+  font-size: 1.1rem;
+}
+.todo-item-task {
+  padding-right: 10px;
+}
