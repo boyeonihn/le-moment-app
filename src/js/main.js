@@ -2,7 +2,7 @@ import { geoSuccess, geoError } from './weather';
 import { getBackgroundImage } from './backgroundImg';
 import { renderQuote, generateQuote } from './quoteFetchRender';
 import { updateClock } from './clock';
-import { addTodoList } from './todoList';
+import { addTodoList, checkSavedToDos } from './todoList';
 import { loggedinStartup } from './greeting';
 import { checkOffMainFocus, addMainFocus } from './mainFocus';
 // general variable declarations
@@ -51,6 +51,7 @@ function switchToLoginMode() {
   setInterval(updateClock, 1000);
   loggedinStartup(updateClock, username);
   renderQuote();
+  checkSavedToDos();
 }
 
 focusInput.addEventListener('keydown', addMainFocus);
