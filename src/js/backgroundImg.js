@@ -24,6 +24,6 @@ export async function getBackgroundImage() {
           'photoCredit'
         ).innerText = `Photo: Vincentiu Solomon`;
       };
-      bgImg.src = 'public/defaultBackground.jpg';
+      bgImg.src = '/defaultBackground.jpg';
     });
 }
