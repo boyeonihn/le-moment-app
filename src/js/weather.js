@@ -10,9 +10,7 @@ export function geoError() {
 
 async function getLocationName(lat, long) {
   const location = fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${
-      import.meta.env.VITE_WEATHER_API
-    }&units=metric`
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=c51a233a7cde933b1210034788d92d2f&units=metric`
   )
     .then((res) => res.json())
     .then((data) => {

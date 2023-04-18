@@ -25,7 +25,7 @@ export async function generateQuote() {
     'https://api.api-ninjas.com/v1/quotes?category=inspirational',
     {
       method: 'GET',
-      headers: { 'X-Api-Key': import.meta.env.VITE_API_KEY },
+      headers: { 'X-Api-Key': 'DAyifC5uyAYZOj0RXxnKoJI6tsmMAoPA8QtXwtCT' },
     }
   )
     .then((res) => res.json())
