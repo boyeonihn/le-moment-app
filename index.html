@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/8a455fb345.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Le Moment</title>
+    <script type="module" crossorigin src="/assets/index-e8261e16.js"></script>
+    <link rel="stylesheet" href="/assets/index-c3796c4f.css">
+  </head>
+  <body>
+    <div class="loggedIn main-page invisible">
+      <header>
+        <span class="header-span" id="todayDate"></span>
+        <div class="header-span header-weather">
+          <span class="weather-realFeel" id="realFeel"></span>
+          <span class="weather-location" id="location"></span>
+        </div>
+      </header>
+      <main>
+        <h1 id="clock"></h1>
+        <h2 id="greeting"></h2>
+        <section class="focusContainer">
+          <div class="focusPromptContainer">
+            <h3 id="focusPromptQuestion">What is your main focus for today?</h3>
+            <input id="focusInput" type="text" />
+          </div>
+          <div class="focusTaskContainer invisible">
+            <h4>Today</h4>
+            <section id="focusTask"></section>
+            <span class="complete-message"></span>
+          </div>
+        </section>
+        <section class="quote-container">
+          <p id="quote"></p>
+          <span id="quoteAuthor"></span>
+        </section>
+      </main>
+    </div>
+    <section class="notLoggedIn login-container">
+      <h1 class="login-heading">Hello, what's your name?</h1>
+      <form class="login-form">
+        <input class="login-input" type="text" />
+      </form>
+    </section>
+    <footer class="invisible">
+      <span class="footer-photo-credit" id="photoCredit"></span>
+      <section id="todo-container">
+        <section id="todo-list" class="invisible">
+          <h4 class="todo-list-title">To-Do List</h4>
+          <input class="todo-list-input" placeholder="New To-Do" type="text" />
+          <ul id="todo-ul"></ul>
+        </section>
+        <h4 id="todo-heading">Todo</h4>
+      </section>
+    </footer>
+    
+    
+  </body>
+</html>
