@@ -5,7 +5,6 @@ const toDosKey = 'todos';
 let toDos =
   localStorage.getItem(toDosKey) !== '[]' ? localStorage.getItem(toDosKey) : [];
 
-console.log(typeof toDos);
 function saveToDos() {
   localStorage.setItem(toDosKey, JSON.stringify(toDos));
 }
