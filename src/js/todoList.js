@@ -3,7 +3,9 @@ const todoListInput = document.querySelector('.todo-list-input');
 
 const toDosKey = 'todos';
 let toDos =
-  localStorage.getItem(toDosKey) !== '[]' ? localStorage.getItem(toDosKey) : [];
+  localStorage.getItem(toDosKey) !== '[]'
+    ? JSON.parse(localStorage.getItem(toDosKey))
+    : new Array();
 
 function saveToDos() {
   localStorage.setItem(toDosKey, JSON.stringify(toDos));
